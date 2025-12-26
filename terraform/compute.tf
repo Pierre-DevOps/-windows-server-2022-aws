@@ -2,6 +2,7 @@
 resource "aws_instance" "windows_server" {
   ami                    = data.aws_ami.windows_2022.id
   instance_type          = var.instance_type
+  key_name               = "pierre-windows-key"
   subnet_id              = aws_subnet.public.id
   vpc_security_group_ids = [aws_security_group.windows_server.id]
   iam_instance_profile   = aws_iam_instance_profile.windows_server.name
